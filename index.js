@@ -17,14 +17,18 @@ app.get("/", (req, res) => {
     res.send("server is listening")
 })
 
+app.get("/testupdate", (req, res) => {
+    res.send("update is up")
+})
+
 
 // this is for fetching queries
-app.get('/api/getChats', async (req, res) => {
-    const { telegramurl } = req.query; 
+app.get('/api/getchat', async (req, res) => {
+    const {url } = req.query; 
     // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     // const targetUrl = ;
     try {
-        const response = await axios.get(telegramurl, {
+        const response = await axios.get(url, {
             headers: {
                 "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36",
                 "Cookie": "stel_web_auth=https%3A%2F%2Fweb.telegram.org%2Fa%2F; stel_on=1; stel_dt=-330; stel_ssid=a7b8a0e2201748fe06_14884534864203537201",
